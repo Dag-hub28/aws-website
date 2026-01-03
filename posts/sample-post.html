@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Host a Static Site on S3 & CloudFront — Tutorial</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">Learn AWS</a>
+    </div>
+  </header>
+
+  <main class="container" style="padding:2rem 0">
+    <article>
+      <h1>Host a Static Site on S3 &amp; CloudFront</h1>
+      <p class="muted">A short guide for beginners to deploy a static website using the AWS Free Tier.</p>
+
+      <h2>Overview</h2>
+      <p>This tutorial demonstrates how to host static files (HTML/CSS/JS) on Amazon S3 and serve them globally through CloudFront.</p>
+
+      <h2>Steps</h2>
+      <ol>
+        <li>Create an S3 bucket for static hosting, enable static website hosting, and set public access rules as needed.</li>
+        <li>Upload your site files (e.g., `index.html`, `style.css`, `script.js`).</li>
+        <li>Create a CloudFront distribution that points to your S3 bucket to get global caching and HTTPS.</li>
+        <li>Optionally add a custom domain and configure DNS to point to CloudFront.</li>
+      </ol>
+
+      <h2>Start with the AWS Free Tier</h2>
+      <p>New users can explore and follow along using the AWS Free Tier: <a href="https://aws.amazon.com/free" target="_blank" rel="noopener" data-affiliate="aws">Start AWS Free Tier</a>.</p>
+
+      <p><strong>Affiliate disclosure:</strong> This tutorial may contain affiliate links; we may earn a commission if you sign up via these links at no extra cost to you.</p>
+
+      <p><a href="/" class="btn btn-outline">Back to Home</a></p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Learn AWS — Beginner Guides.</p>
+    </div>
+  </footer>
+
+  <script src="/script.js" defer></script>
+</body>
+</html>

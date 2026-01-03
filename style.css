@@ -1,0 +1,125 @@
+/*
+  style.css
+  Clean, professional styling using AWS color theme (dark blue and orange).
+  Includes responsive layout and clear comments for beginners.
+*/
+
+:root{
+  --aws-blue: #232F3E; /* deep AWS-like blue */
+  --aws-orange: #FF9900; /* Amazon / AWS orange */
+  --bg: #f7fafc; /* light background */
+  --muted: #6b7280;
+  --card-bg: #ffffff;
+}
+
+/* Reset & base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color:var(--aws-blue);
+  background:linear-gradient(180deg, var(--bg), #ffffff);
+  -webkit-font-smoothing:antialiased;
+}
+.container{
+  width:min(1100px, 92%);
+  margin:0 auto;
+}
+
+/* Header */
+.site-header{
+  background:var(--card-bg);
+  border-bottom:1px solid #e6eef7;
+  position:sticky; top:0; z-index:40;
+}
+.header-inner{
+  display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:0.75rem 0;
+}
+.brand{
+  font-weight:700; color:var(--aws-blue); text-decoration:none; font-size:1.025rem;
+}
+.primary-nav ul{list-style:none;display:flex;gap:1rem;margin:0;padding:0}
+.primary-nav a{color:var(--aws-blue); text-decoration:none; padding:0.45rem 0.6rem; border-radius:6px}
+.primary-nav a:hover, .primary-nav a:focus{background:#eef6ff}
+
+/* Mobile nav toggle */
+.nav-toggle{background:none;border:0;padding:0.4rem;border-radius:6px;display:none}
+.hamburger{display:block;width:28px;height:2px;background:var(--aws-blue);position:relative}
+.hamburger::before,.hamburger::after{content:"";display:block;height:2px;background:var(--aws-blue);position:absolute;left:0;width:100%}
+.hamburger::before{top:-7px}
+.hamburger::after{top:7px}
+
+/* Skip-link for keyboard users */
+.skip-link{position:absolute;left:12px;top:8px;background:var(--card-bg);padding:0.4rem 0.6rem;border-radius:6px;border:1px solid #e6eef7;color:var(--aws-blue);z-index:60;transform:translateY(-120%);transition:transform 150ms ease}
+.skip-link:focus{transform:translateY(0)}
+
+/* HERO */
+.hero{background:linear-gradient(135deg, rgba(35,47,62,0.96), rgba(35,47,62,0.9)); color:#fff; padding:3.5rem 0}
+.hero-inner{display:flex; gap:2rem; align-items:center}
+.hero-copy{flex:1}
+.hero h1{font-size:clamp(1.6rem, 3.6vw, 2.4rem); margin:0 0 0.6rem}
+.lead{color:rgba(255,255,255,0.9); margin:0 0 1rem}
+.hero-actions{display:flex; gap:0.75rem; align-items:center; margin:1rem 0}
+.btn{display:inline-block;padding:0.6rem 1rem;border-radius:8px;border:0;font-weight:600;cursor:pointer}
+.btn-primary{background:var(--aws-orange); color:var(--aws-blue); box-shadow:0 6px 18px rgba(255,153,0,0.18)}
+.btn-primary:hover, .btn-primary:focus{filter:brightness(0.97)}
+.btn-outline{background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.12)}
+.disclaimer{font-size:0.875rem; color:rgba(255,255,255,0.8)}
+
+.hero-visual{width:240px; display:flex; align-items:center; justify-content:center}
+
+/* SECTIONS */
+.section{padding:3rem 0}
+.section .section-intro{color:var(--muted); margin-top:0.25rem}
+
+.grid{display:grid; gap:1rem}
+.cards{grid-template-columns:repeat(3, 1fr)}
+.card{background:var(--card-bg); padding:1.2rem; border-radius:10px; box-shadow:0 6px 18px rgba(20,28,40,0.04)}
+.card h3{margin:0.5rem 0}
+.card-icon{font-size:1.4rem}
+
+.benefits-list{display:grid; grid-template-columns:repeat(2, 1fr); gap:0.75rem; list-style:none; padding:0; margin:1rem 0 0}
+.benefits-list li{background:linear-gradient(180deg,#fff,#fbfdff); padding:0.75rem; border-radius:8px; border:1px solid #eef6ff}
+
+.center{text-align:center}
+
+/* Footer */
+.site-footer{background:var(--card-bg); border-top:1px solid #e6eef7; padding:1rem 0}
+.footer-inner{display:flex; justify-content:space-between; align-items:center; gap:1rem}
+.muted{color:var(--muted)}
+
+/* Toast */
+.toast{position:fixed; right:20px; bottom:20px; background:var(--aws-blue); color:#fff; padding:0.6rem 0.9rem; border-radius:8px; box-shadow:0 8px 20px rgba(0,0,0,0.12); display:none}
+
+/* Responsive rules */
+@media (max-width: 900px){
+  .hero-inner{flex-direction:column; align-items:flex-start}
+  .hero-visual{width:100%; order:2}
+  .cards{grid-template-columns:repeat(2, 1fr)}
+  .benefits-list{grid-template-columns:1fr}
+}
+
+@media (max-width: 640px){
+  .header-inner{padding:0.6rem 0}
+  .nav-toggle{display:block}
+  .primary-nav{position:absolute; left:0; right:0; top:64px; background:var(--card-bg); border-bottom:1px solid #eef6ff; display:none}
+  .primary-nav.open{display:block}
+  .primary-nav ul{flex-direction:column}
+  .cards{grid-template-columns:1fr}
+  .hero{padding:2rem 0}
+  .hero h1{font-size:1.6rem}
+}
+
+/* Utility */
+.hidden{display:none}
+.centered{display:flex; justify-content:center}
+
+/* Focus states for keyboard users */
+a:focus, button:focus{outline:3px solid rgba(255,153,0,0.25); outline-offset:2px}
+
+/* make focus outlines less intrusive for mouse users but visible for keyboard users */
+:focus:not(:focus-visible){outline: none}
+
+/* small print */
+.section .small{font-size:0.9rem; color:var(--muted)}

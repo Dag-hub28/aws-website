@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Host Images on S3 — Tutorial</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">Learn AWS</a>
+    </div>
+  </header>
+
+  <main class="container" style="padding:2rem 0">
+    <article>
+      <h1>Host Images on S3 with Lifecycle Rules</h1>
+      <p class="muted">Store and serve images reliably using S3 and manage retention with lifecycle policies.</p>
+
+      <h2>Steps</h2>
+      <ol>
+        <li>Create an S3 bucket and enable versioning if you want to preserve changes.</li>
+        <li>Upload your images, set appropriate object ACLs or use signed URLs for private objects.</li>
+        <li>Set lifecycle rules to transition older objects to cheaper storage classes.</li>
+      </ol>
+
+      <p>Get started with <a href="https://aws.amazon.com/free" target="_blank" rel="noopener" data-affiliate="aws">AWS Free Tier</a>.</p>
+
+      <p><a href="/posts/" class="btn btn-outline">Back to Tutorials</a></p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Learn AWS — Beginner Guides.</p>
+    </div>
+  </footer>
+
+  <script src="/script.js" defer></script>
+</body>
+</html>

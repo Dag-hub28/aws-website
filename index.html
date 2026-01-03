@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!--
+    index.html
+    Beginner-friendly AWS affiliate homepage
+    - Clean, responsive layout
+    - AWS color theme (dark blue + orange)
+    - Pure HTML/CSS/JS (no frameworks)
+    - Well-commented for learning
+  -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Learn AWS fundamentals, how services like EC2, S3 and CloudFront work, and get started with the AWS Free Tier." />
+  <title>Learn AWS & Start Earning</title>
+  <meta property="og:title" content="Learn AWS & Start Earning" />
+  <meta property="og:description" content="Practical AWS guides, tutorials and tips to help you learn and earn with cloud skills." />
+  <meta property="og:image" content="/assets/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Structured data (JSON-LD) for better search visibility -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Learn AWS",
+    "url": "",
+    "description": "Beginner-friendly AWS tutorials and guides to help you get started with cloud and the AWS Free Tier."
+  }
+  </script>
+
+  <!--
+    Google Analytics (GA4) optional loader
+    - To enable, set your GA4 Measurement ID (G-XXXXXXX) in the <body> tag as:
+      <body data-analytics-id="G-XXXXXXX">
+    - The page will dynamically load gtag only when `data-analytics-id` is present.
+  -->
+  <script>
+  (function(){
+    // Defer until body is available
+    function initGA(){
+      try{
+        var id = document.body && document.body.dataset && document.body.dataset.analyticsId;
+        if(!id) return; // analytics not configured
+
+        // Load gtag script
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+        document.head.appendChild(s);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);} // local helper
+        window.gtag = window.gtag || gtag;
+        gtag('js', new Date());
+        gtag('config', id, { 'send_page_view': true });
+      }catch(e){console.warn('GA init failed', e)}
+    }
+    if (document.readyState === 'complete' || document.readyState === 'interactive') initGA();
+    else document.addEventListener('DOMContentLoaded', initGA);
+  })();
+  </script>
+</head>
+<body data-analytics-id="" data-site-url="">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">Learn AWS</a>
+
+      <!-- Simple mobile nav toggle -->
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+
+      <nav id="primary-nav" class="primary-nav" role="navigation">
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="/posts/">Tutorials</a></li>
+          <li><a href="#benefits">Benefits</a></li>
+          <li><a href="#cta">Get Started</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <main id="main-content" role="main">
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1 id="hero-heading">Learn AWS & Start Earning</h1>
+          <p class="lead">Practical guides to AWS services and how to use the AWS Free Tier to learn and build projects — then monetize through affiliate links and cloud-based services.</p>
+
+          <!-- CTA button: will be handled by JS to open AWS Free Tier -->
+          <div class="hero-actions">
+            <button id="cta-btn" class="btn btn-primary" data-url="https://aws.amazon.com/free" aria-label="Start AWS Free Tier">Start AWS Free Tier</button>
+            <a href="#services" class="btn btn-outline">Explore Services</a>
+          <!-- NOTE: use the keyboard shortcut Ctrl+Shift+T to view tracked events during development -->
+          </div>
+
+          <p class="disclaimer">This site may contain affiliate links. We may earn a commission when you click and make purchases through links — at no extra cost to you.</p>
+        </div>
+
+        <!-- Hero visual / illustration (kept simple, accessible) -->
+        <div class="hero-visual" aria-hidden="true">
+          <!-- Decorative SVG cloud with orange accent -->
+          <svg width="220" height="140" viewBox="0 0 220 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="220" height="140" rx="12" fill="#f7fafc" />
+            <circle cx="60" cy="60" r="36" fill="#FF9900" opacity="0.15" />
+            <circle cx="120" cy="40" r="50" fill="#FF9900" opacity="0.08" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="section services" aria-labelledby="services-heading">
+      <div class="container">
+        <h2 id="services-heading">Core AWS Services</h2>
+        <p class="section-intro">Here's a quick, beginner-friendly overview of a few foundational AWS services you'll encounter often.</p>
+
+        <div class="grid cards">
+          <!-- EC2 -->
+          <article class="card" aria-labelledby="ec2-title">
+            <div class="card-icon">🖥️</div>
+            <h3 id="ec2-title">EC2 (Virtual Servers)</h3>
+            <p>Launch virtual machines (instances) to run websites, apps, or any server-side workload. Flexible sizing and many OS choices.</p>
+            <ul>
+              <li>Compute power on-demand</li>
+              <li>Scale with Auto Scaling groups</li>
+            </ul>
+          </article>
+
+          <!-- S3 -->
+          <article class="card" aria-labelledby="s3-title">
+            <div class="card-icon">🗂️</div>
+            <h3 id="s3-title">S3 (Object Storage)</h3>
+            <p>Store and serve files like images, backups, and static websites. S3 is durable, scalable, and commonly used with CDNs.</p>
+            <ul>
+              <li>Versioning & lifecycle rules</li>
+              <li>Host static sites with low cost</li>
+            </ul>
+          </article>
+
+          <!-- CloudFront -->
+          <article class="card" aria-labelledby="cf-title">
+            <div class="card-icon">🚀</div>
+            <h3 id="cf-title">CloudFront (CDN)</h3>
+            <p>Deliver content fast globally by caching content at edge locations — great for speeding up websites and downloads.</p>
+            <ul>
+              <li>Low latency delivery</li>
+              <li>Works with S3, EC2, and APIs</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS SECTION -->
+    <section id="benefits" class="section benefits" aria-labelledby="benefits-heading">
+      <div class="container">
+        <h2 id="benefits-heading">Why Choose AWS?</h2>
+        <p class="section-intro">AWS provides many advantages for beginners and businesses alike.</p>
+
+        <ul class="benefits-list">
+          <li><strong>Scalability:</strong> Start small and grow without rearchitecting.</li>
+          <li><strong>Cost-effective:</strong> Pay for what you use — Free Tier helps learning with minimal cost.</li>
+          <li><strong>Global reach:</strong> Deploy close to your users with many regions.</li>
+          <li><strong>Security & compliance:</strong> Built-in features and certifications.</li>
+          <li><strong>Vast ecosystem:</strong> Extensive docs, tutorials, and integrations.</li>
+        </ul>
+
+        <div class="center">
+          <button id="cta-btn-2" class="btn btn-primary" data-url="https://aws.amazon.com/free">Start AWS Free Tier</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG / TUTORIALS SECTION -->
+    <section id="blog" class="section blog" aria-labelledby="blog-heading">
+      <div class="container">
+        <h2 id="blog-heading">Latest Tutorials</h2>
+        <p class="section-intro">Short, practical tutorials to help you build and deploy on AWS — each includes hands-on steps and links to resources.</p>
+
+        <div class="grid cards">
+          <article class="card" aria-labelledby="post1-title">
+            <div class="card-icon">📘</div>
+            <h3 id="post1-title"><a href="posts/sample-post.html">Host a Static Site on S3 &amp; CloudFront</a></h3>
+            <p>Step-by-step guide to deploying a static site using S3, CloudFront, and a custom domain.</p>
+            <p><a href="posts/sample-post.html" class="btn btn-outline">Read Tutorial</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Simple footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Learn AWS — Beginner Guides. Not affiliated with Amazon Web Services. <a href="/privacy.html">Privacy</a></p>
+      <small class="muted">This site contains general information and affiliate links for educational purposes only.</small>
+    </div>
+  </footer>
+
+  <!-- Toast notification area (hidden by default) -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
